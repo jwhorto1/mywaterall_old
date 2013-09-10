@@ -11,6 +11,15 @@
       <%= render 'shared/stats' %>
     </section>
   </aside>
+   <div class="span8">
+     <% if @user.schedules.any? %>    
+      <h3>Schedule</h3>
+      <ol class="schedule">
+        <%= render @schedules %>
+      </ol> 
+      <%= will_paginate @schedules %>
+     <% end %>
+  </div>
   <div class="span8">
     <%= render 'follow_form' if signed_in? %>
     <% if @user.microposts.any? %>
