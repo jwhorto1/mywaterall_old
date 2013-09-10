@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   before_action :signed_in_user,
                 only: [:index, :edit, :update, :destroy, :following, :followers]
   before_action :correct_user,   only: [:edit, :update]
@@ -9,6 +10,7 @@ class UsersController < ApplicationController
   end
 
   def show
+
     @user = User.find(params[:id])
     @microposts = @user.microposts.paginate(page: params[:page])
     @schedules = @user.schedules.paginate(page: params[:page])

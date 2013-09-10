@@ -1,4 +1,5 @@
 class SchedulesController < ApplicationController
+
   before_action :signed_in_user
   
   def create
@@ -10,6 +11,10 @@ class SchedulesController < ApplicationController
       @feed_items = []
       render 'static_pages/home'
     end
+  end
+
+  def update
+    @schedule = current_user.schedules.build(schedule_params) 
   end
 
   def destroy
